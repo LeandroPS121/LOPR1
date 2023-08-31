@@ -1,6 +1,4 @@
 Algoritmo "Atividade4"
-// Disciplina   : [Linguagem e Lógica de Programação] 
-// Professor   : Antonio Carlos Nicolodi 
 //Programa que calcula volume de uma lata(3.14 X (raio^2) X altura)
 Const
 VALOR_PI = 3.14
