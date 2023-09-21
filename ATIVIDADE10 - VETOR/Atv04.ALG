@@ -19,7 +19,6 @@ Inicio
    escreval
    escreval("Numeros informados:")
    menor <- numeros[0]
-   posiMenor <- 0
    para i de 0 ate 11 faca
       escreval(numeros[i])
       se numeros[i] < menor entao
