@@ -26,7 +26,9 @@ FIMPROCEDIMENTO
 PROCEDIMENTO vezDeQuem()
 VAR
 INICIO
-   -
+   contador <- 1
+   REPITA
+      verificaJogador()
       //Zerando os valores para começar nova validação
       linha <- 0
       coluna <- 0
@@ -40,8 +42,8 @@ INICIO
 
       //Exibe matriz atualizada
       atualizaMatriz()
-      
-      ATE contador > 9
+
+   ATE contador > 9
 FIMPROCEDIMENTO
 //________________________________________________________________
 
@@ -80,46 +82,43 @@ FIMPROCEDIMENTO
 PROCEDIMENTO validarDados()
 VAR
 INICIO
-ENQUANTO jogadaPossivel = FALSO FACA
-         escreval("Vez do jogador:",jogada)
-         escreval("Em qual linha deseja jogar?")
-         leia(linha)
-         escreval("Em qual coluna deseja jogar?")
-         leia(coluna)
+   ENQUANTO jogadaPossivel = FALSO FACA
+      escreval("Vez do jogador:",jogada)
+      escreval("Em qual linha deseja jogar?")
+      leia(linha)
+      escreval("Em qual coluna deseja jogar?")
+      leia(coluna)
+      escreval
+      SE (linha < 1) ou (linha > 3) ou (coluna < 1) ou (coluna > 3) ENTAO
+         limpatela
+         atualizaMatriz()
+         escreval("ERRO! Valor invalido!")
          escreval
-         SE (linha < 1) ou (linha > 3) ou (coluna < 1) ou (coluna > 3) ENTAO
+      SENAO
+         SE (matrix[linha,coluna] <> "| |") ENTAO
             limpatela
             atualizaMatriz()
-            escreval("ERRO! Valor invalido!")
+            escreval("Erro! espaco ja ocupado!")
             escreval
          SENAO
-            SE (matrix[linha,coluna] <> "| |") ENTAO
-               limpatela
-               atualizaMatriz()
-               escreval("Erro! espaco ja ocupado!")
-               escreval
-            SENAO
-               jogadaPossivel <- VERDADEIRO
-            FIMSE
+            jogadaPossivel <- VERDADEIRO
          FIMSE
-      FIMENQUANTO
+      FIMSE
+   FIMENQUANTO
 FIMPROCEDIMENTO
 //________________________________________________________________
 
-//Procedimento que verifica qual jogador ira jogar
 //________________________________________________________________
+//Procedimento que verifica de quem e a vez
 PROCEDIMENTO verificaJogador()
 VAR
 INICIO
-contador <- 1
-   REPITA
-      SE contador % 2 = 0 ENTAO
+SE contador % 2 = 0 ENTAO
          jogada <- "[O]"
       SENAO
          jogada <- "[X]"
       FIMSE
 FIMPROCEDIMENTO
-//________________________________________________________________
 Inicio
    //Chama o procedimento que inicia todo o jogo e suas funções
    inicializarProcedimentoJogoDaVelha()
