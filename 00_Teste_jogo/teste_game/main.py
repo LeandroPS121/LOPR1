@@ -33,7 +33,7 @@ while inicio == True:
 
             hp_jogador_maximo  = 20
             str_jogador  = 50
-            mp_jogador   = 10
+            mp_jogador_maximo   = 10
             arma_jogador = "2x Metralhadoras! (muito poder e em dobro.. )"
 
             id_estilo = 1
@@ -51,7 +51,7 @@ while inicio == True:
 
             hp_jogador_maximo  = 35
             str_jogador  = 35
-            mp_jogador   = 10
+            mp_jogador_maximo   = 10
             arma_jogador = "Espada Longa! (simples demais.. espera aí.. Guts?)"
 
             id_estilo = 2
@@ -68,7 +68,7 @@ while inicio == True:
             
             hp_jogador_maximo  = 50
             str_jogador  = 20
-            mp_jogador   = 10
+            mp_jogador_maximo   = 10
             arma_jogador = "Escudo com Espinhos! (o Sonic sentiria inveja..)"
 
             id_estilo = 3
@@ -161,6 +161,7 @@ input("--> ")
 inimigos = ["Palusk","João","Fernanda","Eros","Brunno","Alann"]
 
 hp_jogador = hp_jogador_maximo
+mp_jogador = mp_jogador_maximo
 while jogo_ganho == False:
     os.system('cls')
     defense = 1
@@ -216,5 +217,9 @@ while jogo_ganho == False:
                 case "4":
                     cancelar_acao = True
                     print("STATUS do jogador: \n")
-                    print(f"HP: {hp_jogador}/{hp_jogador_maximo}\nSTR: {str_jogador}\nMP: {mp_jogador} \n\nArma: {arma_jogador}")
+                    print(f"HP: {hp_jogador}/{hp_jogador_maximo}\nSTR: {str_jogador}\nMP: {mp_jogador}/{mp_jogador_maximo} \n\nArma: {arma_jogador}")
                     input("--> ")
+                case _:
+                    cancelar_acao = True
+                    os.system('cls')
+                    print("OPÇÃO INVÁLIDA")
