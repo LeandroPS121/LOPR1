@@ -1,0 +1,2 @@
+corrigir:
+- 2 -> usar o n:m em musica e compositor, e em musica e interpretes
